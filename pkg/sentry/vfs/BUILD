@@ -99,6 +99,7 @@ go_library(
         "//pkg/gohacks",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safemem",
         "//pkg/sentry/arch",
         "//pkg/sentry/fs",

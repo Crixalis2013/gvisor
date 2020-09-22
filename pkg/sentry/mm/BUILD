@@ -127,6 +127,7 @@ go_library(
         "//pkg/context",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safecopy",
         "//pkg/safemem",
         "//pkg/sentry/arch",

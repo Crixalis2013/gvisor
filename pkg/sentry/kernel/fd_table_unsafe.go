@@ -37,6 +37,7 @@ type descriptorTable struct {
 func (f *FDTable) init() {
 	var slice []unsafe.Pointer // Empty slice.
 	atomic.StorePointer(&f.slice, unsafe.Pointer(&slice))
+	f.EnableLeakCheck()
 }
 
 // get gets a file entry.

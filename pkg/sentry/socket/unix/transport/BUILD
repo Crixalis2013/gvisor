@@ -44,6 +44,7 @@ go_library(
         "//pkg/ilist",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/sync",
         "//pkg/syserr",
         "//pkg/tcpip",

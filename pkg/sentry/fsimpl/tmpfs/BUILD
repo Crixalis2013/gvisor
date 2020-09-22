@@ -60,6 +60,7 @@ go_library(
         "//pkg/fspath",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safemem",
         "//pkg/sentry/arch",
         "//pkg/sentry/fs",

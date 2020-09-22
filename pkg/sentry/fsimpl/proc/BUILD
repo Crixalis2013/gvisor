@@ -82,6 +82,7 @@ go_library(
         "//pkg/context",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safemem",
         "//pkg/sentry/fs/lock",
         "//pkg/sentry/fsbridge",

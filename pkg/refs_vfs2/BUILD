@@ -20,7 +20,15 @@ go_template(
 
 go_library(
     name = "refs_vfs2",
-    srcs = ["refs.go"],
-    visibility = ["//pkg/sentry:internal"],
-    deps = ["//pkg/context"],
+    srcs = [
+        "refs.go",
+        "refs_map.go",
+    ],
+    visibility = ["//:sandbox"],
+    deps = [
+        "//pkg/context",
+        "//pkg/log",
+        "//pkg/refs",
+        "//pkg/sync",
+    ],
 )

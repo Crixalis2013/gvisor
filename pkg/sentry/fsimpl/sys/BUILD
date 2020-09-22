@@ -28,6 +28,7 @@ go_library(
         "//pkg/coverage",
         "//pkg/log",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/sentry/arch",
         "//pkg/sentry/fsimpl/kernfs",
         "//pkg/sentry/kernel",

@@ -33,6 +33,7 @@ go_library(
         "//pkg/marshal",
         "//pkg/marshal/primitive",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safemem",
         "//pkg/sentry/arch",
         "//pkg/sentry/fs",

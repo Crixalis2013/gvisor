@@ -43,6 +43,7 @@ go_library(
         "//pkg/log",
         "//pkg/marshal",
         "//pkg/refs",
+        "//pkg/refs_vfs2",
         "//pkg/safemem",
         "//pkg/sentry/arch",
         "//pkg/sentry/device",
