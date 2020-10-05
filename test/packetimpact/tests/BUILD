@@ -16,6 +16,18 @@ packetimpact_testbench(
 )
 
 packetimpact_testbench(
+    name = "ipv4_fragment",
+    srcs = ["ipv4_fragment_test.go"],
+    deps = [
+        "//pkg/tcpip",
+        "//pkg/tcpip/buffer",
+        "//pkg/tcpip/header",
+        "//test/packetimpact/testbench",
+        "@org_golang_x_sys//unix:go_default_library",
+    ],
+)
+
+packetimpact_testbench(
     name = "ipv4_id_uniqueness",
     srcs = ["ipv4_id_uniqueness_test.go"],
     deps = [
@@ -291,6 +303,18 @@ packetimpact_testbench(
     srcs = ["ipv6_unknown_options_action_test.go"],
     deps = [
         "//pkg/tcpip",
+        "//pkg/tcpip/header",
+        "//test/packetimpact/testbench",
+        "@org_golang_x_sys//unix:go_default_library",
+    ],
+)
+
+packetimpact_testbench(
+    name = "ipv6_fragment",
+    srcs = ["ipv6_fragment_test.go"],
+    deps = [
+        "//pkg/tcpip",
+        "//pkg/tcpip/buffer",
         "//pkg/tcpip/header",
         "//test/packetimpact/testbench",
         "@org_golang_x_sys//unix:go_default_library",

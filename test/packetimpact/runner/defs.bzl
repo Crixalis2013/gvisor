@@ -161,6 +161,11 @@ ALL_TESTS = [
         name = "fin_wait2_timeout",
     ),
     PacketimpactTestInfo(
+        name = "ipv4_fragment",
+        # TODO(gvisor.dev/issue/4496): A packetimpact test can't send an IPv4 fragment with MF flag or non-zero Fragment Offset.
+        expect_netstack_failure = True,
+    ),
+    PacketimpactTestInfo(
         name = "ipv4_id_uniqueness",
     ),
     PacketimpactTestInfo(
@@ -250,6 +255,9 @@ ALL_TESTS = [
         name = "ipv6_unknown_options_action",
         # TODO(b/159928940): Fix netstack then remove the line below.
         expect_netstack_failure = True,
+    ),
+    PacketimpactTestInfo(
+        name = "ipv6_fragment",
     ),
     PacketimpactTestInfo(
         name = "ipv6_fragment_reassembly",

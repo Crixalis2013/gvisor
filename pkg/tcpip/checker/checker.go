@@ -953,6 +953,22 @@ func ICMPv6Code(want header.ICMPv6Code) TransportChecker {
 	}
 }
 
+// ICMPv6Payload creates a checker that checks the payload in an ICMPv6 packet.
+func ICMPv6Payload(want []byte) TransportChecker {
+	return func(t *testing.T, h header.Transport) {
+		t.Helper()
+
+		icmpv6, ok := h.(header.ICMPv6)
+		if !ok {
+			t.Fatalf("unexpected transport header passed to checker, got = %T, want = header.ICMPv6", h)
+		}
+		payload := icmpv6.Payload()
+		if diff := cmp.Diff(want, payload); diff != "" {
+			t.Errorf("ICMP payload mismatch (-want +got):\n%s", diff)
+		}
+	}
+}
+
 // NDP creates a checker that checks that the packet contains a valid NDP
 // message for type of ty, with potentially additional checks specified by
 // checkers.
