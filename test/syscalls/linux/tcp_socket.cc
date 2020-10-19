@@ -1725,6 +1725,27 @@ TEST_P(SimpleTcpSocketTest, CloseNonConnectedLingerOption) {
   ASSERT_LT((end_time - start_time), absl::Seconds(kLingerTimeout));
 }
 
+// Tests that SO_ACCEPTCONN returns non zero value for listening sockets and
+// zero for other sockets.
+TEST_P(TcpSocketTest, GetSocketAcceptConn) {
+  int got = -1;
+  socklen_t length = sizeof(got);
+  ASSERT_THAT(getsockopt(listener_, SOL_SOCKET, SO_ACCEPTCONN, &got, &length),
+              SyscallSucceeds());
+  ASSERT_EQ(length, sizeof(got));
+  EXPECT_EQ(got, 1);
+
+  ASSERT_THAT(getsockopt(s_, SOL_SOCKET, SO_ACCEPTCONN, &got, &length),
+              SyscallSucceeds());
+  ASSERT_EQ(length, sizeof(got));
+  EXPECT_EQ(got, 0);
+
+  ASSERT_THAT(getsockopt(t_, SOL_SOCKET, SO_ACCEPTCONN, &got, &length),
+              SyscallSucceeds());
+  ASSERT_EQ(length, sizeof(got));
+  EXPECT_EQ(got, 0);
+}
+
 INSTANTIATE_TEST_SUITE_P(AllInetTests, SimpleTcpSocketTest,
                          ::testing::Values(AF_INET, AF_INET6));
 
